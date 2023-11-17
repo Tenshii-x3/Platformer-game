@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        GameObject.DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
@@ -55,9 +56,14 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded == true)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            moving=true;
+        }
+        if (Input.GetKeyUp("w") || Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            moving = false;
         }
 
-
+        anim.SetBool("moving", moving);
         transform.position = newPosition;
         transform.localScale = newScale;
     }
@@ -67,6 +73,17 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("hit");
             SceneManager.LoadScene(2); //access SceneManager class for LoadScene function
+           
+           
+        }
+        if (collision.gameObject.tag.Equals("switch2"))
+        {
+            Debug.Log("hit");
+            SceneManager.LoadScene(3); //access SceneManager class for LoadScene function
         }
     }
+
+   
+        
+    
 }
