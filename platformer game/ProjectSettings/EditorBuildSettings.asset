@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/E.N.D.unity
     guid: 623339b5d11f3ce49a7e96f7bf53c450
+  - enabled: 1
+    path: Assets/Scenes/fouth scene.unity
+    guid: fd67f04bc63320f489764d8aba444288
   m_configObjects: {}

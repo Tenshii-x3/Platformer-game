@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public bool isGrounded;
 
+    public GameObject textbox1; 
+
     SpriteRenderer sprite;
 
     // Start is called before the first frame update
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         GameObject.DontDestroyOnLoad(gameObject);
+        textbox1.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -72,7 +76,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag.Equals("switch"))
         {
             Debug.Log("hit");
-            SceneManager.LoadScene(2); //access SceneManager class for LoadScene function
+            SceneManager.LoadScene(4); //access SceneManager class for LoadScene function
            
            
         }
@@ -81,9 +85,31 @@ public class PlayerController : MonoBehaviour
             Debug.Log("hit");
             SceneManager.LoadScene(3); //access SceneManager class for LoadScene function
         }
+        if (collision.gameObject.tag.Equals("switch3"))
+        {
+            Debug.Log("hit");
+            SceneManager.LoadScene(2); //access SceneManager class for LoadScene function
+
+
+        }
+        
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
+        if (collision.gameObject.tag.Equals("npc"))
+        {
+            Debug.Log("hit");
+           
+        }
+        if ((collision.gameObject.tag.Equals("npc")) && Input.GetKey("e"))
+        {
+            
+            textbox1.SetActive(true);
+        }
     }
 
-   
-        
-    
+
+
+
 }

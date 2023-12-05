@@ -6,6 +6,8 @@ TagManager:
   tags:
   - switch
   - switch2
+  - switch3
+  - npc
   layers:
   - Default
   - TransparentFX
